@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="800px" height="600px" style="border: solid 1px black"></canvas>
+</body>
+</html>
+<script>
+
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d")
+
+    ctx.beginPath()
+    ctx.fillStyle = "#ff0000"
+    ctx.arc(10, 10, 100, 0, Math.PI * 2)
+    ctx.fill()
+
+    class Rectangle {
+        x
+        y
+        width
+        height
+        color
+
+        constructor(x, y, width, height, color) {
+            this.x = x
+            this.y = y
+            this.width = width
+            this.height = height
+            this.color = color
+        }
+
+        render(x, y, width, height, color) {
+            ctx.beginPath()
+            ctx.fillStyle = color
+            ctx.fillRect(x, y, width, height)
+            ctx.stroke()
+            ctx.closePath()
+        }
+    }
+
+    let rectangle1 = new Rectangle()
+    rectangle1.render(220, 220, 300, 150, "lightgreen")
+
+
+</script>
